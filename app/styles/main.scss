@@ -76,20 +76,6 @@ h1, h2 {
     @include three-points;
 }
 
-.features {
-    h1 {
-        @include span-columns(12);
-    }
-    @include three-points;
-}
-
-.guarantee {
-    @include span-columns(12);
-    margin: 40px 0px;
-    text-align: center;
-    font-size: 30px;
-}
-
 .testimonials {
     blockquote {
         &:before {
