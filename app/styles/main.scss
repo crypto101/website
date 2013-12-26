@@ -76,6 +76,12 @@ h1, h2 {
     @include three-points;
 }
 
+#donations {
+    #donation-options {
+        @include three-points;
+    }
+}
+
 .testimonials {
     blockquote {
         &:before {
