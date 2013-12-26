@@ -79,7 +79,16 @@ h1, h2 {
 
 #donations {
     #donation-options {
+        text-align: center;
         @include three-points;
+    }
+}
+
+#presentation {
+    @include span-columns(12);
+    iframe {
+        display: block;
+        margin: 20px auto;
     }
 }
 
