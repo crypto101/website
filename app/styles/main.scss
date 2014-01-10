@@ -78,6 +78,8 @@ h1, h2 {
 }
 
 #donations {
+    @include span-columns(12);
+
     #donation-options {
         text-align: center;
         @include three-points;
@@ -130,4 +132,8 @@ h1, h2 {
     p {
         text-align: center;
     }
+}
+
+#contribution-options {
+    @include three-points;
 }
