@@ -1,1 +1,4 @@
-console.log('\'Allo \'Allo!');
+$("#download-button").click(function () {
+  $(this).find("button").attr("disabled", true);
+  $("#email-form").show();
+});
