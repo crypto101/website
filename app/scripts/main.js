@@ -1,4 +1,4 @@
-$("#download-button").click(function () {
+$("#download-link").click(function () {
   $(this).find("button").attr("disabled", true);
   $("#email-form").show();
 });

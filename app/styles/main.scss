@@ -56,6 +56,10 @@ h1, h2 {
         line-height: 30px;
     }
 
+    #download-link {
+        text-decoration: none;
+    }
+
     button, input[type=submit] {
         @include button;
 
@@ -69,10 +73,6 @@ h1, h2 {
         font-family: $helvetica;
         font-size: 20px;
         font-weight: 200;
-    }
-
-    #download {
-        @include button(#ff0000);
     }
 }
 
