@@ -76,6 +76,15 @@ h1, h2 {
     }
 }
 
+#sponsors {
+    margin-top: 50px;
+    div {
+        img.logo {
+            @include span-columns(6);
+        }
+    }
+}
+
 @mixin three-points {
     margin-top: 20px;
 
@@ -88,6 +97,8 @@ h1, h2 {
 .benefits {
     @include three-points;
 }
+
+
 
 #donations {
     @include span-columns(12);
