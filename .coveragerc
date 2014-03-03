@@ -1,0 +1,7 @@
+[run]
+branch = True
+source = c101ws
+
+[report]
+exclude_lines =
+    pragma: no cover
