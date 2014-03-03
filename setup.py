@@ -28,8 +28,7 @@ class Tox(TestCommand):
 
 setup(name=packageName,
       version=versionString,
-      description='The web server for Crypto 101',
-      long_description=open("README.rst").read(),
+      description='The web site for Crypto 101',
       url='https://github.com/crypto101/website',
 
       author='Laurens Van Houtven',
