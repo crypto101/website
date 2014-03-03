@@ -1,4 +1,4 @@
-from c101ws import insecureSite
+from c101ws.web import insecureSite
 from twisted.trial.unittest import SynchronousTestCase
 from twisted.web.util import Redirect
 
