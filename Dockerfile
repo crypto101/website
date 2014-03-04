@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:quantal
 MAINTAINER Laurens Van Houtven, _@lvh.io
 
 RUN apt-get update
