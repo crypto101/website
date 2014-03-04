@@ -34,7 +34,7 @@ setup(name=packageName,
       author='Laurens Van Houtven',
       author_email='_@lvh.io',
 
-      packages=find_packages(),
+      packages=find_packages() + ["twisted.plugins"],
       test_suite=packageName + ".test",
 
       install_requires=dependencies,
@@ -56,3 +56,10 @@ setup(name=packageName,
           "Topic :: Security :: Cryptography",
         ]
 )
+
+try:
+    from twisted.plugin import IPlugin, getPlugins
+except ImportError:
+    pass
+else:
+    list(getPlugins(IPlugin))
