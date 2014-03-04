@@ -1,14 +1,15 @@
 from c101ws.mailgun import SubscribeResource
+from os import environ
 from twisted.web.server import Site
 from twisted.web.static import File
 from twisted.web.util import Redirect
 
 
-def secureSite(staticPath):
+def secureSite(_environ=environ):
     """Builds the secure (HTTPS, port 443) site.
 
     """
-    root = File(staticPath)
+    root = File(_environ["STATIC_PATH"])
     root.putChild("subscribe", SubscribeResource())
     return Site(root)
 
