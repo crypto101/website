@@ -1,11 +1,12 @@
 from c101ws.web import secureSite, insecureSite
 from clarent.certificate import SecureCiphersContextFactory
 from os import environ
-from twisted.application.service import Service, ServiceMaker
+from twisted.application.service import Service, IServiceMaker
 from twisted.internet import reactor
 from twisted.internet.endpoints import SSL4ServerEndpoint, TCP4ServerEndpoint
 from twisted.internet.ssl import PrivateCertificate
 from twisted.python.usage import Options
+from zope.interface import implementer
 
 
 class Service(Service):
@@ -22,11 +23,11 @@ class Service(Service):
 
 
 
-class ServiceMaker(ServiceMaker):
+@implementer(IServiceMaker)
+class ServiceMaker(object):
     tapname = "c101ws"
     options = Options
     description ="Crypto 101 website"
-
 
     def makeService(self, _options):
         return Service()
