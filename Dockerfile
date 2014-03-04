@@ -10,12 +10,14 @@ WORKDIR /var/website
 RUN tox -e py27
 
 WORKDIR /var/website/static
-RUN apt-get install -y npm
+RUN apt-get install -y software-properties-common python-software-properties python g++ make
+RUN add-apt-repository ppa:chris-lea/node.js
+RUN apt-get update
+RUN apt-get install -y nodejs
 RUN npm install
-RUN grunt build
 
-RUN apt-get remove python-setuptools python-pip git build-essential python-dev libffi-dev
-RUN apt-get remove npm
+RUN apt-get remove -y python-setuptools python-pip git build-essential python-dev libffi-dev
+RUN apt-get remove -y nodejs
 
 RUN mkdir /var/website/external
 VOLUME ["/var/website/external"]
