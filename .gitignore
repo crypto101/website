@@ -4,3 +4,4 @@ static/dist
 .sass-cache
 app/bower_components
 dropin.cache
+local
