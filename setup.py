@@ -2,6 +2,17 @@ import sys
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
+from setuptools.command import egg_info
+def _topLevel(name):
+    return name.split('.', 1)[0]
+
+def _hacked_write_toplevel_names(cmd, basename, filename):
+    names = map(_topLevel, cmd.distribution.iter_distribution_names())
+    pkgs = dict.fromkeys(set(names) - set(["twisted"]))
+    cmd.write_file("top-level names", filename, '\n'.join(pkgs) + '\n')
+
+egg_info.write_toplevel_names = _hacked_write_toplevel_names
+
 packageName = "c101ws"
 
 dependencies = [
