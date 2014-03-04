@@ -1,4 +1,4 @@
-#!bash
+#!/usr/bin/env bash
 # This is mostly a helper script for Docker.
 source .tox/py27/bin/activate
 twistd c101ws
