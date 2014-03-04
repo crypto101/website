@@ -10,9 +10,9 @@ RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get update
 RUN apt-get install -y nodejs ruby-compass
 
-RUN git clone https://github.com/crypto101/website.git /var/website # 4 Mar 2014 17:27
+RUN git clone https://github.com/crypto101/website.git /var/website # 4 Mar 2014 18:41
 
-ADD local/cert-chain.pem /var/website/local
+ADD local/cert-chain.pem /var/website/local/cert-chain.pem
 
 WORKDIR /var/website/static
 RUN npm install -g grunt-cli 2>&1
