@@ -3,3 +3,4 @@ static/dist
 .tmp
 .sass-cache
 app/bower_components
+dropin.cache
