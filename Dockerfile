@@ -1,7 +1,7 @@
 FROM ubuntu:quantal
 MAINTAINER Laurens Van Houtven, _@lvh.io
 
-RUN apt-get update # 2014-03-04 14:52
+RUN apt-get update # 4 Mar 2014 16:38
 RUN apt-get install -y python-setuptools python-pip git build-essential python-dev libffi-dev
 RUN pip install tox
 
@@ -10,13 +10,13 @@ RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get update
 RUN apt-get install -y nodejs ruby-compass
 
-RUN git clone https://github.com/crypto101/website.git /var/website # 2014-03-03 17:22
+RUN git clone https://github.com/crypto101/website.git /var/website # 4 Mar 2014 16:38
 
 ADD local/cert-chain.pem /var/website/local
 
 WORKDIR /var/website/static
 RUN npm install -g grunt-cli 2>&1
-RUN npm install 2>&1 # 2014-03-04 14:52
+RUN npm install 2>&1 # 4 Mar 2014 16:38
 RUN grunt build
 
 WORKDIR /var/website
