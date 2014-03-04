@@ -1,1 +1,0 @@
-$("#download-link").click(function(){$(this).find("button").attr("disabled",!0),$("#email-form").show()});
