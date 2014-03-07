@@ -26,8 +26,7 @@ RUN apt-get remove -y python-setuptools python-pip git build-essential python-de
 RUN apt-get remove -y nodejs ruby-compass
 RUN apt-get -y autoremove
 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
 ENV STATIC_PATH /var/website/static/dist
 ENTRYPOINT /var/website/run
