@@ -12,8 +12,6 @@ RUN apt-get install -y nodejs ruby-compass
 
 RUN git clone https://github.com/crypto101/website.git /var/website # 4 Mar 2014 22:11
 
-ADD local/cert-chain.pem /var/website/local/cert-chain.pem
-
 WORKDIR /var/website/static
 RUN npm install -g grunt-cli 2>&1
 RUN npm install 2>&1 # 4 Mar 2014 17:07
@@ -26,7 +24,8 @@ RUN apt-get remove -y python-setuptools python-pip git build-essential python-de
 RUN apt-get remove -y nodejs ruby-compass
 RUN apt-get -y autoremove
 
-EXPOSE 80 443
+VOLUME /var/website/local
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
 ENV STATIC_PATH /var/website/static/dist
+EXPOSE 80 443
 ENTRYPOINT /var/website/run
