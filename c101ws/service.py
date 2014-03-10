@@ -17,8 +17,7 @@ class WebsiteService(Service):
 
 
     def startService(self):
-        s = insecureSite(self._environ)
-        TCP4ServerEndpoint(self._reactor, 80).listen(s)
+        TCP4ServerEndpoint(self._reactor, 80).listen(insecureSite())
 
         with open(self._environ["CERTIFICATE_PATH"]) as f:
             pemData = f.read()
