@@ -12,8 +12,8 @@ from zope.interface import implementer
 
 class WebsiteService(Service):
     def __init__(self, _environ=environ, _reactor=reactor):
-        self._environ = environ
-        self._reactor = reactor
+        self._environ = _environ
+        self._reactor = _reactor
 
 
     def startService(self):
