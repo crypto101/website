@@ -27,4 +27,5 @@ RUN apt-get -y autoremove
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
 ENV STATIC_PATH /var/website/static/dist
 EXPOSE 80 443
+VOLUME ["/var/website/local"]
 ENTRYPOINT /var/website/run
