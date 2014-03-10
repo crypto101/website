@@ -17,14 +17,15 @@ class WebsiteService(Service):
 
 
     def startService(self):
-        TCP4ServerEndpoint(self._reactor, 80).listen(insecureSite())
+        s = insecureSite(self._environ)
+        TCP4ServerEndpoint(self._reactor, 80).listen(s)
 
         with open(self._environ["CERTIFICATE_PATH"]) as f:
             pemData = f.read()
         cert = PrivateCertificate.loadPEM(pemData)
         ctxFactory = SecureCiphersContextFactory(cert.options())
         sslEndpoint = SSL4ServerEndpoint(self._reactor, 443, ctxFactory)
-        sslEndpoint.listen(secureSite())
+        sslEndpoint.listen(secureSite(self._environ))
         Service.startService(self)
 
 
