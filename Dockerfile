@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get install -y nodejs ruby-compass
 
 RUN apt-get install -y authbind
-WORKDIR /etc/authbind
+WORKDIR /etc/authbind/byport
 RUN touch 80 443
 RUN chmod 777 80 443
 
