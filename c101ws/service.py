@@ -11,18 +11,32 @@ from zope.interface import implementer
 
 
 class Service(Service):
-    def __init__(self, _environ=environ):
-        self._httpEndpoint = TCP4ServerEndpoint(reactor, 80)
-        with open(_environ["CERTIFICATE_PATH"]) as f:
-            pemData = f.read()
-        cert = PrivateCertificate.loadPEM(pemData)
-        ctxFactory = SecureCiphersContextFactory(cert.options())
-        self._tlsEndpoint = SSL4ServerEndpoint(reactor, 443, ctxFactory)
+    def __init__(self, _environ=environ, _reactor=reactor):
+        self._environ = environ
+        self._reactor = reactor
 
 
     def startService(self):
-        self._httpEndpoint.listen(insecureSite())
-        self._tlsEndpoint.listen(secureSite())
+        try:
+            open(self._environ["CERTIFICATE_PATH"])
+        except IOError:
+            pass
+        else:
+            raise RuntimeError("CERTIFICATE_PATH still readable after "
+                               "shedding privileges!")
+
+        Service.startService(self)
+
+
+    def privilegedSartService(self):
+        TCP4ServerEndpoint(self._reactor, 80).listen(insecureSite())
+
+        with open(self._environ["CERTIFICATE_PATH"]) as f:
+            pemData = f.read()
+        cert = PrivateCertificate.loadPEM(pemData)
+        ctxFactory = SecureCiphersContextFactory(cert.options())
+        sslEndpoint = SSL4ServerEndpoint(self._reactor, 443, ctxFactory)
+        sslEndpoint.listen(secureSite())
 
 
 
