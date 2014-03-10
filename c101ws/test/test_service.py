@@ -19,6 +19,7 @@ class ServiceTests(SynchronousTestCase):
         verifyObject(IService, self.service)
 
 
+
 class ServiceMakerTests(SynchronousTestCase):
     def test_interfaces(self):
         """The serivce maker implements both IServiceMaker and IPlugin.
