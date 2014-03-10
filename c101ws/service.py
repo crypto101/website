@@ -1,6 +1,7 @@
 from c101ws.web import secureSite, insecureSite
 from clarent.certificate import SecureCiphersContextFactory
 from os import environ
+from OpenSSL.SSL import SSLv23_METHOD
 from twisted.application.service import Service, IServiceMaker
 from twisted.internet import reactor
 from twisted.internet.endpoints import SSL4ServerEndpoint, TCP4ServerEndpoint
@@ -17,14 +18,17 @@ class WebsiteService(Service):
 
 
     def startService(self):
-        TCP4ServerEndpoint(self._reactor, 80).listen(insecureSite())
+        TCP4ServerEndpoint(self._reactor, 8000).listen(insecureSite())
 
         with open(self._environ["CERTIFICATE_PATH"]) as f:
             pemData = f.read()
-        cert = PrivateCertificate.loadPEM(pemData)
-        ctxFactory = SecureCiphersContextFactory(cert.options())
-        sslEndpoint = SSL4ServerEndpoint(self._reactor, 443, ctxFactory)
+        ctxFactory = PrivateCertificate.loadPEM(pemData).options
+        ctxFactory.method = SSLv23_METHOD
+        ctxFactory = SecureCiphersContextFactory(ctxFactory)
+
+        sslEndpoint = SSL4ServerEndpoint(self._reactor, 4430, ctxFactory)
         sslEndpoint.listen(secureSite(self._environ))
+
         Service.startService(self)
 
 
