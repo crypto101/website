@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # This is mostly a helper script for Docker.
-# Activates virtualenv, then runs twistd in the foreground as nobody.
-# The usual security issues with using nobody don't apply: we're containerized.
+# Activates virtualenv, then runs twistd in the foreground under authbind
 source .tox/py27/bin/activate
-twistd --nodaemon --uid=`id -u nobody` --gid=`id -g nobody` c101ws
+authbind twistd --nodaemon c101ws

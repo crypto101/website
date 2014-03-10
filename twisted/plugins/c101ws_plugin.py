@@ -1,2 +1,2 @@
-from c101ws.service import ServiceMaker
-serviceMaker = ServiceMaker()
+from c101ws.service import WebsiteServiceMaker
+serviceMaker = WebsiteServiceMaker()

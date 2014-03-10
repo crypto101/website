@@ -17,18 +17,6 @@ class WebsiteService(Service):
 
 
     def startService(self):
-        try:
-            open(self._environ["CERTIFICATE_PATH"])
-        except IOError:
-            pass
-        else:
-            raise RuntimeError("CERTIFICATE_PATH still readable after "
-                               "shedding privileges!")
-
-        Service.startService(self)
-
-
-    def privilegedSartService(self):
         TCP4ServerEndpoint(self._reactor, 80).listen(insecureSite())
 
         with open(self._environ["CERTIFICATE_PATH"]) as f:
@@ -37,6 +25,7 @@ class WebsiteService(Service):
         ctxFactory = SecureCiphersContextFactory(cert.options())
         sslEndpoint = SSL4ServerEndpoint(self._reactor, 443, ctxFactory)
         sslEndpoint.listen(secureSite())
+        Service.startService(self)
 
 
 
