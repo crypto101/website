@@ -10,7 +10,7 @@ from twisted.python.usage import Options
 from zope.interface import implementer
 
 
-class Service(Service):
+class WebsiteService(Service):
     def __init__(self, _environ=environ, _reactor=reactor):
         self._environ = environ
         self._reactor = reactor
@@ -41,10 +41,10 @@ class Service(Service):
 
 
 @implementer(IServiceMaker, IPlugin)
-class ServiceMaker(object):
+class WebsiteServiceMaker(object):
     tapname = "c101ws"
     options = Options
     description ="Crypto 101 website"
 
     def makeService(self, _options):
-        return Service()
+        return WebsiteService()
