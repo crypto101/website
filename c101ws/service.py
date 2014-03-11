@@ -30,9 +30,7 @@ class WebsiteService(Service):
         ctxFactory = certificateOptionsFromFiles(certPath,
             method=SSLv23_METHOD)
 
-        ctxFactory = SecureCiphersContextFactory(ctxFactory)
-
-        theContext = ctxFactory.getContext()
+        theContext = SecureCiphersContextFactory(ctxFactory).getContext()
         return lambda: theContext
 
 
