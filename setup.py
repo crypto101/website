@@ -19,7 +19,8 @@ dependencies = [
     "twisted>=13.2.0",
     "clarent>=0.1.1",
     "PyOpenSSL>=0.14",
-    "treq==0.2.0"
+    "treq==0.2.0",
+    "pem==0.1.0"
 ]
 
 import re
