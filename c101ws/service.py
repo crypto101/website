@@ -11,6 +11,19 @@ from twisted.python.usage import Options
 from zope.interface import implementer
 
 
+class CertChainContextFactory(object):
+    def __init__(self, ctxFactory, certChainPath):
+        self.ctxFactory = ctxFactory
+        self.certChainPath = certChainPath
+
+
+    def getContext(self):
+        ctx = self.ctxFactory.getContext()
+        ctx.use_certificate_chain_file(self.certChainPath)
+        return ctx
+
+
+
 class WebsiteService(Service):
     def __init__(self, _environ=environ, _reactor=reactor):
         self._environ = _environ
@@ -20,16 +33,26 @@ class WebsiteService(Service):
     def startService(self):
         TCP4ServerEndpoint(self._reactor, 8000).listen(insecureSite())
 
-        with open(self._environ["CERTIFICATE_PATH"]) as f:
-            pemData = f.read()
-        ctxFactory = PrivateCertificate.loadPEM(pemData).options
-        ctxFactory.method = SSLv23_METHOD
-        ctxFactory = SecureCiphersContextFactory(ctxFactory)
-
+        ctxFactory = self._getCtxFactory()
         sslEndpoint = SSL4ServerEndpoint(self._reactor, 4430, ctxFactory)
         sslEndpoint.listen(secureSite(self._environ))
 
         Service.startService(self)
+
+
+    def _getCtxFactory(self):
+        certPath = self._environ["CERTIFICATE_PATH"]
+        with open(certPath) as f:
+            pemData = f.read()
+
+        ctxFactory = PrivateCertificate.loadPEM(pemData).options()
+        ctxFactory.method = SSLv23_METHOD
+
+        ctxFactory = SecureCiphersContextFactory(ctxFactory)
+        ctxFactory = CertChainContextFactory(ctxFactory, certPath)
+
+        theContext = ctxFactory.getContext()
+        return lambda: theContext
 
 
 
