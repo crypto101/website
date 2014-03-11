@@ -15,7 +15,7 @@ WORKDIR /etc/authbind/byport
 RUN touch 80 443
 RUN chmod 777 80 443
 
-RUN git clone https://github.com/crypto101/website.git /var/website # 10 Mar 2014 13:35
+RUN git clone https://github.com/crypto101/website.git /var/website # 11 Mar 2014 11:37
 
 WORKDIR /var/website/static
 RUN npm install -g grunt-cli 2>&1
