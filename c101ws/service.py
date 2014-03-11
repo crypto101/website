@@ -30,14 +30,12 @@ class WebsiteService(Service):
         self._reactor = _reactor
 
 
-    def startService(self):
+    def privilegedStartService(self):
         TCP4ServerEndpoint(self._reactor, 8000).listen(insecureSite())
 
         ctxFactory = self._getCtxFactory()
         sslEndpoint = SSL4ServerEndpoint(self._reactor, 4430, ctxFactory)
         sslEndpoint.listen(secureSite(self._environ))
-
-        Service.startService(self)
 
 
     def _getCtxFactory(self):

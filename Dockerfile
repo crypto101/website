@@ -10,11 +10,6 @@ RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get update
 RUN apt-get install -y nodejs ruby-compass
 
-RUN apt-get install -y authbind
-WORKDIR /etc/authbind/byport
-RUN touch 80 443
-RUN chmod 777 80 443
-
 RUN git clone https://github.com/crypto101/website.git /var/website # 11 Mar 2014 11:37
 
 WORKDIR /var/website/static
@@ -29,11 +24,8 @@ RUN apt-get remove -y python-setuptools python-pip git build-essential python-de
 RUN apt-get remove -y nodejs ruby-compass
 RUN apt-get -y autoremove
 
-RUN chown -R nobody /var/website
-
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
 ENV STATIC_PATH /var/website/static/dist
 EXPOSE 80 443
 VOLUME ["/var/website/local"]
-USER nobody
 ENTRYPOINT /var/website/run
