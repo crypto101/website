@@ -10,21 +10,22 @@ from zope.interface.verify import verifyObject
 
 class ServiceTests(SynchronousTestCase):
     def setUp(self):
-        certPath = join(dirname(__file__), "test-cert-chain.pem")
-        self.service = WebsiteService(_environ={"CERTIFICATE_PATH": certPath})
+        def localPath(name):
+            return join(dirname(__file__), name)
+
+        self.service = WebsiteService(_environ={
+            "CERTIFICATE_PATH": localPath("test-cert-chain.pem"),
+            "DH_PARAMETERS_PATH": localPath("test-dh-parameters.pem")
+        })
 
 
     def test_contextFactory(self):
         """The context factory produces pragmatic, secure SSL contexts.
 
-        The context factory is a ``SecureCiphersContextFactory``
-        wrapping an ``OpenSSLCertificateOptions`` that uses
-        ``SSLv23_METHOD``.
-
-        The context factory can produce contexts.
         """
         ctxFactory = self.service._getCtxFactory()
         self.assertIdentical(type(ctxFactory), SecureCiphersContextFactory)
+
         certOptions = ctxFactory.ctxFactory
         self.assertEqual(certOptions.method, SSLv23_METHOD)
 
