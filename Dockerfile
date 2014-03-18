@@ -25,6 +25,7 @@ RUN apt-get remove -y nodejs ruby-compass
 RUN apt-get -y autoremove
 
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
+ENV DH_PARAMETERS_PATH /var/website/local/dh-parameters.pem
 ENV STATIC_PATH /var/website/static/dist
 EXPOSE 80 443
 VOLUME ["/var/website/local"]
