@@ -29,4 +29,4 @@ ENV DH_PARAMETERS_PATH /var/website/local/dh-parameters.pem
 ENV STATIC_PATH /var/website/static/dist
 EXPOSE 80 443
 VOLUME ["/var/website/local"]
-ENTRYPOINT /var/website/run
+ENTRYPOINT /var/website/run-in-container
