@@ -29,6 +29,8 @@ RUN apt-get -y autoremove
 RUN echo "root - nofile 32768" >> /etc/security/limits.conf
 RUN echo "nobody - nofile 32768" >> /etc/security/limits.conf
 RUN sysctl -p
+RUN echo "session required pam_limits.so" > /etc/pam.d/common-session
+RUN echo "session required pam_limits.so" > /etc/pam.d/common-session-noninteractive
 
 ENV ENV_VARS_PATH /var/website/local/env-vars.json
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
