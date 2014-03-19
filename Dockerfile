@@ -26,6 +26,9 @@ RUN gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 RUN apt-get remove -y nodejs rubygems
 RUN apt-get -y autoremove
 
+RUN echo "root - nofile 32768" >> /etc/security/limits.conf
+RUN echo "nobody - nofile 32768" >> /etc/security/limits.conf
+
 ENV ENV_VARS_PATH /var/website/local/env-vars.json
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
 ENV DH_PARAMETERS_PATH /var/website/local/dh-parameters.pem
