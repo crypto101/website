@@ -1,3 +1,5 @@
 include README.rst
 include c101ws/test/test-cert-chain.pem
 include c101ws/test/test-dh-parameters.pem
+include c101ws/test/test-dh-parameters.pem
+include c101ws/test/env-vars.json

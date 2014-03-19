@@ -2,14 +2,11 @@
 Mailgun API calls.
 """
 from json import dumps
-from os import getenv
+from os import environ
 from treq import get, post, json_content
 from twisted.python import log
 from twisted.web.resource import Resource
 from twisted.web.server import NOT_DONE_YET
-
-PRIVATE_AUTH = "api", getenv("MAILGUN_PRIVATE_API_KEY")
-PUBLIC_AUTH = "api", getenv("MAILGUN_PUBLIC_API_KEY")
 
 
 def subscribe(mailingList, address):
@@ -17,7 +14,7 @@ def subscribe(mailingList, address):
 
     """
     url = "https://api.mailgun.net/v2/lists/{}/members".format(mailingList)
-    d = post(url, auth=PRIVATE_AUTH, data={
+    d = post(url, auth=("api", environ["MAILGUN_PRIVATE_API_KEY"]), data={
         'subscribed': True,
         'address': address
     })
@@ -30,7 +27,8 @@ def validate(address):
 
     """
     url = "https://api.mailgun.net/v2/address/validate"
-    d = get(url, auth=PUBLIC_AUTH, params={"address": address})
+    d = get(url, auth=("api", environ["MAILGUN_PUBLIC_API_KEY"]),
+            params={"address": address})
     return d.addCallback(json_content)
 
 

@@ -1,4 +1,5 @@
 from c101ws.web import secureSite, insecureSite
+from json import load
 from os import environ
 from pem import certificateOptionsFromFiles, DiffieHellmanParameters
 from twisted.application.service import Service, IServiceMaker
@@ -10,7 +11,6 @@ from twisted.python.usage import Options
 from zope.interface import implementer
 
 
-
 class WebsiteService(Service):
     def __init__(self, _environ=environ, _reactor=reactor):
         self._environ = _environ
@@ -18,6 +18,8 @@ class WebsiteService(Service):
 
 
     def privilegedStartService(self):
+        self._loadEnviron()
+
         TCP4ServerEndpoint(self._reactor, 80).listen(insecureSite())
 
         ctxFactory = self._getCtxFactory()
@@ -34,6 +36,15 @@ class WebsiteService(Service):
             dhParameters=dhParameters)
 
         return ctxFactory
+
+
+    def _loadEnvVars(self):
+        """
+        Load a bunch of environment local environemnt variables.
+        """
+        with open(self._environ["ENV_VARS_PATH"]) as f:
+            envVars = load(f)
+        self._environ.update(envVars)
 
 
 
