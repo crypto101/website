@@ -11,7 +11,26 @@ def secureSite(_environ=environ):
     """
     root = File(_environ["STATIC_PATH"])
     root.putChild("subscribe", SubscribeResource())
-    return Site(root)
+
+    site = Site(root)
+    site.requestFactory = _withHSTS(site.requestFactory)
+    return site
+
+
+def _withHSTS(requestFactory):
+    """
+    Builds a request factory that sets HSTS (HTTP Strict Transport
+    Security) headers, by wrapping another request factory.
+
+    """
+    def makeHSTSRequest(*a, **kw):
+        request = requestFactory(*a, **kw)
+        request.responseHeaders.setRawHeaders(
+            "Strict-Transport-Security", ["max-age=31536000"])
+        return request
+
+    return makeHSTSRequest
+
 
 
 def insecureSite():
