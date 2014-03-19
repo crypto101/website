@@ -36,6 +36,10 @@ def validate(address):
 
 
 class SubscribeResource(Resource):
+    def __init__(self, mailingList):
+        self.mailingList = mailingList
+
+
     def render_POST(self, request):
         """Attempt to subscribe.
 
@@ -71,7 +75,9 @@ class SubscribeResource(Resource):
         """Actually (try to) subscribe the address to the mailing list.
 
         """
-        return subscribe(address).addCallback(self._subscribed, request)
+        d = subscribe(self.mailingList, address)
+        d.addCallback(self._subscribed, request)
+        return d
 
 
     def _subscribed(self, subscribeResponse, request):

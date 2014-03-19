@@ -10,7 +10,7 @@ def secureSite(_environ=environ):
 
     """
     root = File(_environ["STATIC_PATH"])
-    root.putChild("subscribe", SubscribeResource())
+    root.putChild("subscribe", SubscribeResource("announce@crypto101.io"))
 
     site = Site(root)
     site.requestFactory = _withHSTS(site.requestFactory)
