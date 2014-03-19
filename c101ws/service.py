@@ -18,7 +18,7 @@ class WebsiteService(Service):
 
 
     def privilegedStartService(self):
-        self._loadEnviron()
+        self._loadEnvVars()
 
         TCP4ServerEndpoint(self._reactor, 80).listen(insecureSite())
 
