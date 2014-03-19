@@ -1,7 +1,7 @@
 from c101ws.web import secureSite, insecureSite
 from clarent.certificate import SecureCiphersContextFactory
 from os import environ
-from OpenSSL.SSL import SSLv23_METHOD
+from OpenSSL.SSL import SSLv23_METHOD, OP_CIPHER_SERVER_PREFERENCE
 from pem import certificateOptionsFromFiles, DiffieHellmanParameters
 from twisted.application.service import Service, IServiceMaker
 from twisted.internet import reactor
@@ -35,6 +35,10 @@ class WebsiteService(Service):
             self._environ["CERTIFICATE_PATH"],
             method=SSLv23_METHOD,
             dhParameters=dhParameters)
+
+        # HACK
+        oldOpts = ctxFactory.ctxFactory._options
+        ctxFactory.ctxFactory._options = oldOpts & ~(OP_CIPHER_SERVER_PREFERENCE)
 
         return SecureCiphersContextFactory(ctxFactory)
 
