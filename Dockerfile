@@ -22,9 +22,9 @@ WORKDIR /var/website
 RUN tox -e py27
 
 RUN apt-get remove -y python-setuptools python-pip git build-essential python-dev libffi-dev
+RUN gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 RUN apt-get remove -y nodejs rubygems
 RUN apt-get -y autoremove
-RUN gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
 ENV DH_PARAMETERS_PATH /var/website/local/dh-parameters.pem
