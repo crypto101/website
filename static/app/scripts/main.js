@@ -8,7 +8,8 @@ $(function() {
 
   $("#submit-email").click(function () {
     $("#submit-email").attr("disabled", "disabled");
-    $.ajax("https://crypto101.io/subscribe", {
+    $.ajax("https://www.crypto101.io/subscribe", {
+      "type": "POST",
       "data": {
         "address": $("#email").val(),
         "force": false
