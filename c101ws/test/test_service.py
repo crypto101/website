@@ -1,5 +1,4 @@
 from c101ws.service import WebsiteService, WebsiteServiceMaker
-from clarent.certificate import SecureCiphersContextFactory
 from OpenSSL.SSL import SSLv23_METHOD
 from os.path import dirname, join
 from twisted.application.service import IService, IServiceMaker
@@ -24,11 +23,7 @@ class ServiceTests(SynchronousTestCase):
 
         """
         ctxFactory = self.service._getCtxFactory()
-        self.assertIdentical(type(ctxFactory), SecureCiphersContextFactory)
-
-        certOptions = ctxFactory.ctxFactory
-        self.assertEqual(certOptions.method, SSLv23_METHOD)
-
+        self.assertEqual(ctxFactory.method, SSLv23_METHOD)
         ctxFactory.getContext()
 
 
