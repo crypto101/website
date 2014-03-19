@@ -8,7 +8,8 @@ RUN pip install tox
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get update
-RUN apt-get install -y nodejs ruby-compass
+RUN apt-get install -y nodejs rubygems
+RUN gem install compass
 
 RUN git clone https://github.com/crypto101/website.git /var/website # 19 Mar 2014 00:05
 
@@ -21,8 +22,9 @@ WORKDIR /var/website
 RUN tox -e py27
 
 RUN apt-get remove -y python-setuptools python-pip git build-essential python-dev libffi-dev
-RUN apt-get remove -y nodejs ruby-compass
+RUN apt-get remove -y nodejs rubygems
 RUN apt-get -y autoremove
+RUN gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 
 ENV CERTIFICATE_PATH /var/website/local/cert-chain.pem
 ENV DH_PARAMETERS_PATH /var/website/local/dh-parameters.pem
