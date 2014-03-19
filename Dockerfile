@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get install -y nodejs rubygems
 RUN gem install compass --pre
 
-RUN git clone https://github.com/crypto101/website.git /var/website # 19 Mar 2014 20:14
+RUN git clone https://github.com/crypto101/website.git /var/website # 19 Mar 2014 20:18
 
 WORKDIR /var/website/static
 RUN npm install -g grunt-cli 2>&1
