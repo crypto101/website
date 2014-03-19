@@ -9,7 +9,7 @@ RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get update
 RUN apt-get install -y nodejs rubygems
-RUN gem install compass
+RUN gem install compass --pre
 
 RUN git clone https://github.com/crypto101/website.git /var/website # 19 Mar 2014 00:05
 
