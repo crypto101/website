@@ -13,6 +13,7 @@ def secureSite(_environ=environ):
     root.putChild("subscribe", SubscribeResource("announce@crypto101.io"))
 
     site = Site(root)
+    site.displayTracebacks = False
     site.requestFactory = _withHSTS(site.requestFactory)
     return site
 

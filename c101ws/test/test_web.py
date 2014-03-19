@@ -1,4 +1,4 @@
-from c101ws.web import insecureSite, _withHSTS
+from c101ws.web import insecureSite, secureSite, _withHSTS
 from twisted.trial.unittest import SynchronousTestCase
 from twisted.web.http_headers import Headers
 from twisted.web.util import Redirect
@@ -12,6 +12,13 @@ class FakeRequest(object):
 
         self.responseHeaders = Headers()
         self.requestHeaders = Headers()
+
+
+
+class SecureSiteTests(SynchronousTestCase):
+    def test_doesntDisplayTracebacks(self):
+        site = secureSite({"STATIC_PATH": ""})
+        self.assertFalse(site.displayTracebacks)
 
 
 
