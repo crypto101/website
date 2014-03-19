@@ -1,6 +1,6 @@
 from c101ws.web import insecureSite, _withHSTS
 from twisted.trial.unittest import SynchronousTestCase
-from twisted.web.server import Request
+from twisted.web.http_headers import Headers
 from twisted.web.util import Redirect
 
 
@@ -10,13 +10,16 @@ class FakeRequest(object):
         self.prepath = []
         self.postpath = path.split("/")
 
+        self.responseHeaders = Headers()
+        self.requestHeaders = Headers()
 
 
-class HSTSTests(object):
+
+class HSTSTests(SynchronousTestCase):
     def test_withHSTS(self):
-        requestFactoryWithHSTS = _withHSTS(Request)
-        responseHeaders = requestFactoryWithHSTS().responseHeaders
-        value, = responseHeaders.getRawHeaders("Strict-Transport-Security")
+        requestFactoryWithHSTS = _withHSTS(FakeRequest)
+        headers = requestFactoryWithHSTS().responseHeaders
+        value, = headers.getRawHeaders("Strict-Transport-Security")
         self.assertEqual(value, "max-age=31536000")
 
 
