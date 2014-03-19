@@ -1,7 +1,6 @@
 from c101ws.web import secureSite, insecureSite
 from clarent.certificate import SecureCiphersContextFactory
 from os import environ
-from OpenSSL.SSL import SSLv23_METHOD
 from pem import certificateOptionsFromFiles, DiffieHellmanParameters
 from twisted.application.service import Service, IServiceMaker
 from twisted.internet import reactor
@@ -33,7 +32,6 @@ class WebsiteService(Service):
 
         ctxFactory = certificateOptionsFromFiles(
             self._environ["CERTIFICATE_PATH"],
-            method=SSLv23_METHOD,
             dhParameters=dhParameters)
 
         return SecureCiphersContextFactory(ctxFactory)
