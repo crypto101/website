@@ -18,7 +18,7 @@ class FakeRequest(object):
 class HSTSTests(SynchronousTestCase):
     def test_withHSTS(self):
         requestFactoryWithHSTS = _withHSTS(FakeRequest)
-        headers = requestFactoryWithHSTS().responseHeaders
+        headers = requestFactoryWithHSTS("path").responseHeaders
         value, = headers.getRawHeaders("Strict-Transport-Security")
         self.assertEqual(value, "max-age=31536000")
 
