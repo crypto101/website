@@ -2,7 +2,6 @@ $(function() {
   var downloadLink = $("#download-link");
 
   downloadLink.click(function () {
-    downloadLink.find("button").attr("disabled", "disabled");
     $("#email-form").show();
   });
 
@@ -19,8 +18,10 @@ $(function() {
       console.log("data");
       if (data.success === true) {
         $("#email-message").text("Thanks, you're signed up!");
+        $("#submit-email").attr("disabled", "disabled");
       }
       else {
+        $("#submit-email").attr("disabled", false);
         if (data.reason === "duplicate") {
           $("#email-message").text("Looks like you're already signed up :-)");
         }
@@ -30,7 +31,6 @@ $(function() {
             msg += " Did you mean " + data.suggestion + "?"
           }
           $("#email-message").text(msg);
-          $("#submit-email").attr("disabled", false);
         }
         else {
           $("#email-message").text("Something appears to be broken :-(");
