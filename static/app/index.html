@@ -13,6 +13,8 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+        <script src="scripts/modernizr.js"></script>
+        <script type="text/javascript" src="http://localhost:48626/takana.js"></script>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -23,7 +25,7 @@
           </p>
         <![endif]-->
 
-        <div class="hero-unit">
+        <div class="container">
           <h1>Crypto for everyone.</h1>
           <p>
             Crypto 101 is an introductory course on cryptography,
@@ -52,65 +54,71 @@
           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-        <div class="benefits">
-          <div>
-            <h2>Start to finish.</h2>
-            <p>
-              Comes with everything you need to understand complete
-              systems such as SSL/TLS: block ciphers, stream ciphers,
-              hash functions, message authentication codes, public key
-              encryption, key agreement protocols, and signature
-              algorithms.
-            </p>
-          </div>
-
-          <div>
-            <h2>Learn by doing.</h2>
-            <p>
-              Learn how to exploit common cryptographic flaws, armed
-              with nothing but a little time and your favorite
-              programming language.
-            </p>
-            <p>
-              Forge administrator cookies, recover passwords, and even
-              backdoor your own random number generator.
-            </p>
-          </div>
-
-          <div>
-            <h2>Works everywhere.</h2>
-            <p>
-              DRM-free and available in all common formats:
-            </p>
-            <ul>
-              <li>PDF (for Mac and PC)</li>
-              <li><s>EPUB (for most ebook readers, iPad and iPhone)</s></li>
-              <li><s>Mobi (for Kindle)</s></li>
-            </ul>
-            <p>
-              Exercises run on OS X, Windows, Linux and BSDs.
-            </p>
-          </div>
-        </div>
-
-        <div id="sponsors">
-          <h1>Sponsors</h1>
-          <div id="sponsor-rackspace">
-            <img class="logo" src="images/rackspace.png"
-                 alt="Rackspace">
-            <p>
-              <a href="https://www.rackspace.com/">Rackspace</a> is a
-              world-leading cloud services provider. They have
-              incredibly generously offered to take care of all of
-              Crypto 101's extensive hosting requirements free of
-              charge. This project simply wouldn't be possible without
-              their help.
-            </p>
-            <p>Thanks, Rackspace!</p>
+        <div class="container">
+          <div class="row">
+            <div class="mustache2">
+              <h2>Start to finish.</h2>
+              <p>
+                Comes with everything you need to understand complete
+                systems such as SSL/TLS: block ciphers, stream ciphers,
+                hash functions, message authentication codes, public key
+                encryption, key agreement protocols, and signature
+                algorithms.
+              </p>
+            </div>
+            
+            <div class="mustache2">
+              <h2>Learn by doing.</h2>
+              <p>
+                Learn how to exploit common cryptographic flaws, armed
+                with nothing but a little time and your favorite
+                programming language.
+              </p>
+              <p>
+                Forge administrator cookies, recover passwords, and even
+                backdoor your own random number generator.
+              </p>
+            </div>
+            
+            <div class="mustache2">
+              <h2>Works everywhere.</h2>
+              <p>
+                DRM-free and available in all common formats:
+              </p>
+              <ul>
+                <li>PDF (for Mac and PC)</li>
+                <li><s>EPUB (for most ebook readers, iPad and iPhone)</s></li>
+                <li><s>Mobi (for Kindle)</s></li>
+              </ul>
+              <p>
+                Exercises run on OS X, Windows, Linux and BSDs.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div id="donations">
+        <div class="container">
+          <h2 class="text-center">Sponsors</h2>
+          <div class="row">
+             <div class="mustache3 text-center">
+                <img class="logo" src="images/rackspace.png"
+                    alt="Rackspace">
+             </div>
+              <div class="mustache3">
+                <p>
+                  <a href="https://www.rackspace.com/">Rackspace</a> is a
+                  world-leading cloud services provider. They have
+                  incredibly generously offered to take care of all of
+                  Crypto 101's extensive hosting requirements free of
+                  charge. This project simply wouldn't be possible without
+                  their help.
+                </p>
+                <p>Thanks, Rackspace!</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="container">
           <h1>Donations</h1>
           <p>
             Crypto 101 is available for everyone, for free, forever.
@@ -122,20 +130,20 @@
             more <a href="contributing.html">about contributing</a>.
           </p>
 
-          <div id="donation-options">
-            <div>
+          <div class="row">
+            <div class="mustache2">
               <h2>Bitcoin</h2>
               <a href="bitcoin:1PS3aS2GsYTqgVbt18wEJZNCtn2F1HanhE">
                 <pre>1PS3aS2GsYTqgVbt1<br>8wEJZNCtn2F1HanhE</pre>
               </a>
             </div>
-            <div>
+            <div class="mustache2">
               <h2>Litecoin</h2>
               <a href="litecoin:LPbC6Ng1K69x2Uh3xBKDCWVm9kcGFxDc9Z">
                 <pre>LPbC6Ng1K69x2Uh3x<br>BKDCWVm9kcGFxDc9Z</pre>
               </a>
             </div>
-            <div>
+            <div class="mustache2">
               <h2>Credit cards</h2>
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
@@ -147,7 +155,7 @@
           </div>
         </div>
 
-        <div id="presentation">
+        <div class="container">
           <h2>Crypto 101: the presentation</h2>
           <p>
             Crypto 101 started as a presentation at PyCon 2013. It
@@ -174,7 +182,7 @@
         </div>
         -->
 
-        <div class="footer">
+        <div class="container footer">
           <p>
             Made with love
             by <a href="https://twitter.com/lvh">lvh</a>. Crypto 101

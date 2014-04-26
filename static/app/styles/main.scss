@@ -1,162 +1,18 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
-$fg: #333333;
-$bg: #fefefe;
+@import "base";
+
+@import "grid";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-    @include outer-container;
-
-    max-width: 800px;
-
-    background: $bg;
-
-    font-family: $helvetica;
-    font-weight: 200;
-
-    color: $fg;
+    font-family: "Open Sans";
 }
 
-h1, h2 {
-    font-weight: 200;
-    text-align: center;
-}
-
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-.hero-unit {
-    @include span-columns(10);
-    @include shift(1);
-
-    background-color: shade($bg, 5%);
-    border-radius: 20px;
-
-    margin-top: 20px;
-    padding: 40px 60px;
-
-    text-align: center;
-
-    h1, p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    h1 {
-        font-size: 60px;
-        line-height: 60px;
-    }
-
-    p, input {
-        font-size: 22px;
-        line-height: 30px;
-    }
-
-    #download-link {
-        text-decoration: none;
-    }
-
-    button, input[type=submit] {
-        @include button;
-
-        display: block;
-
-        margin-left: auto;
-        margin-right: auto;
-
-        padding: 20px 30px;
-
-        font-family: $helvetica;
-        font-size: 20px;
-        font-weight: 200;
-    }
-}
-
-#sponsors {
-    margin-top: 50px;
-    div {
-        img.logo {
-            @include span-columns(6);
-        }
-    }
-}
-
-@mixin three-points {
-    margin-top: 20px;
-
-    div {
-        @include span-columns(4);
-        padding: 0px 10px;
-    }
-}
-
-.benefits {
-    @include three-points;
-}
+// global helpers
+.text-center { text-align: center; }
 
 
 
-#donations {
-    @include span-columns(12);
-
-    #donation-options {
-        text-align: center;
-        @include three-points;
-    }
-}
-
-#presentation {
-    @include span-columns(12);
-    iframe {
-        display: block;
-        margin: 20px auto;
-    }
-}
-
-.testimonials {
-    blockquote {
-        &:before {
-            @include span-columns(1);
-            content: "\201C";
-
-            font-size: 140px;
-            font-weight: 400;
-
-            color: shade($bg, 20%);
-        }
-
-        @include span-columns(11);
-
-        p {
-            padding-left: 10px;
-            font-size: 22px;
-        }
-
-        cite {
-            float: right;
-            color: tint($fg, 10%);
-            &:before {
-                content: "\2014 \2009";
-            }
-        }
-    }
-}
-
-.footer {
-    @include span-columns(12);
-    margin-top: 10px;
-
-    color: tint($fg, 50%);
-
-    p {
-        text-align: center;
-    }
-}
-
-#contribution-options {
-    @include three-points;
-}
