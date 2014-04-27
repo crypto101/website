@@ -1,0 +1,26 @@
+// logos
+.rackspace-logo {
+    @include retina-image("../images/rackspace", 340px 105px);
+    width: 340px;
+    height: 105px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bitcoin-logo {
+    @include retina-image("../images/bitcoin", 40px 40px);
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -4px;
+}
+
+.litecoin-logo {
+    @include retina-image("../images/litecoin", 40px 40px);
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -4px;
+}

@@ -1,0 +1,43 @@
+body {
+    font-family: "Open Sans";
+    font-size: 15px;
+    margin: 0;
+    color: $color-notblack;
+}
+
+.page-wrapper {
+    margin-bottom: 106px; // footer height
+    background: $color-white;
+}
+
+img, iframe {
+    max-width: 100%;
+}
+
+iframe {
+    width: 100%;
+}
+
+
+hr {
+	border: 1px solid $color-grey-light;
+	border-bottom: none;
+}
+
+ul {
+	padding-left: 20px;
+}
+
+
+input[type="email"],
+input[type="text"] {
+    vertical-align: top;
+    height: 51px;
+    line-height: 51px;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    @include box-shadow(none);
+    border-radius: 2px;
+    border: 1px solid $color-white;
+}

@@ -1,0 +1,11 @@
+.btn {
+    height: em(36);
+    line-height: em(36);
+    border-radius: 2px;
+    font-size: em(24);
+    padding: 0 em(20);
+    @include box-shadow(none);
+    border: 0;
+    @include linear-gradient(bottom, $color-orange, $color-orange-light);
+    color: $color-white;
+}

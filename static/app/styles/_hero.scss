@@ -1,0 +1,12 @@
+
+// tilted hero
+.tilted-bottom { position: relative; }
+.tilted-bottom:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: -15px;
+    @include transform(rotate(-1deg));
+    background: $color-white;;
+}
