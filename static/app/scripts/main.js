@@ -5,6 +5,13 @@ $(function() {
     $("#email-form").show();
   });
 
+  $("#email-form").on('click', function(e) {
+    var target = e.target
+    if (target === this || target.classList.contains("close") ) {
+      $(this).css("display", "none");
+    };
+  })
+
   $("#submit-email").click(function () {
     $("#submit-email").attr("disabled", "disabled");
     $.ajax("https://www.crypto101.io/subscribe", {

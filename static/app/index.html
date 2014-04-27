@@ -25,146 +25,183 @@
           </p>
         <![endif]-->
 
-        <div class="container">
-          <h1>Crypto for everyone.</h1>
-          <p>
-            Crypto 101 is an introductory course on cryptography,
-            freely available for programmers of all ages and skill
-            levels.
+        <form id="email-form" class="page-overlay" style="display: none;">
+          <a href="#" class="close">x</a>
+          <p id="email-message">
+            Awesome! <br> You can also optionally sign up for updates:
           </p>
-          <a id="download-link"
-            href="https://9d0df72831e4b345bb93-4b37fd03e6af34f2323bb971f72f0c0d.ssl.cf5.rackcdn.com/Crypto101.pdf"
-            target="_blank">
-            <button>Get the pre-release now</button>
-          </a>
+      
+          <input name="email" id="email"
+                 type="email"
+                 placeholder="Your e-mail address"
+                 style="margin-bottom: 20px"
+                 aria-required="true"
+                 required>
+          <input id="submit-email" type="submit"
+                 class="btn" 
+                 value="Subscribe!">
+        </form>
 
-          <form id="email-form" style="display: none">
-            <p id="email-message">
-              Awesome! You can also optionally sign up for updates:
-            </p>
-
-            <input name="email" id="email"
-                   placeholder="Your e-mail address"
-                   style="margin-bottom: 20px">
-            <input id="submit-email" type="submit"
-                   value="Subscribe!">
-          </form>
-
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="lvh" data-size="large">Tweet</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="mustache2">
-              <h2>Start to finish.</h2>
-              <p>
-                Comes with everything you need to understand complete
-                systems such as SSL/TLS: block ciphers, stream ciphers,
-                hash functions, message authentication codes, public key
-                encryption, key agreement protocols, and signature
-                algorithms.
-              </p>
-            </div>
-            
-            <div class="mustache2">
-              <h2>Learn by doing.</h2>
-              <p>
-                Learn how to exploit common cryptographic flaws, armed
-                with nothing but a little time and your favorite
-                programming language.
-              </p>
-              <p>
-                Forge administrator cookies, recover passwords, and even
-                backdoor your own random number generator.
-              </p>
-            </div>
-            
-            <div class="mustache2">
-              <h2>Works everywhere.</h2>
-              <p>
-                DRM-free and available in all common formats:
-              </p>
-              <ul>
-                <li>PDF (for Mac and PC)</li>
-                <li><s>EPUB (for most ebook readers, iPad and iPhone)</s></li>
-                <li><s>Mobi (for Kindle)</s></li>
-              </ul>
-              <p>
-                Exercises run on OS X, Windows, Linux and BSDs.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <h2 class="text-center">Sponsors</h2>
-          <div class="row">
-             <div class="mustache3 text-center">
-                <img class="logo" src="images/rackspace.png"
-                    alt="Rackspace">
-             </div>
-              <div class="mustache3">
-                <p>
-                  <a href="https://www.rackspace.com/">Rackspace</a> is a
-                  world-leading cloud services provider. They have
-                  incredibly generously offered to take care of all of
-                  Crypto 101's extensive hosting requirements free of
-                  charge. This project simply wouldn't be possible without
-                  their help.
-                </p>
-                <p>Thanks, Rackspace!</p>
+        <div class="page-wrapper">
+  
+          <div class="bg-purple bg-numbers tilted-bottom 
+                      text-white p-top-100 p-bottom-100">
+            <div class="container">
+              <h1 class="brand green-plus-before">
+                Crypto<span class="text-light">101</span>
+              </h1>
+              <div class="row">
+                <div class="mustache4">
+                  <p class="lead">
+                    Crypto 101 is an introductory course on cryptography,
+                    freely available for programmers of all ages and skill
+                    levels.
+                  </p>
+                </div>
               </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <h1>Donations</h1>
-          <p>
-            Crypto 101 is available for everyone, for free, forever.
-            Development is
-            hosted <a href="https://github.com/crypto101">on
-            Github</a>, funded by free time and your donations. You
-            are free to donate any amount you want, and all donations
-            are of course entirely voluntary. Learn
-            more <a href="contributing.html">about contributing</a>.
-          </p>
-
-          <div class="row">
-            <div class="mustache2">
-              <h2>Bitcoin</h2>
-              <a href="bitcoin:1PS3aS2GsYTqgVbt18wEJZNCtn2F1HanhE">
-                <pre>1PS3aS2GsYTqgVbt1<br>8wEJZNCtn2F1HanhE</pre>
+              <a id="download-link"
+                href="https://9d0df72831e4b345bb93-4b37fd03e6af34f2323bb971f72f0c0d.ssl.cf5.rackcdn.com/Crypto101.pdf"
+                target="_blank">
+                <button class="btn">Get pre-release</button>
               </a>
-            </div>
-            <div class="mustache2">
-              <h2>Litecoin</h2>
-              <a href="litecoin:LPbC6Ng1K69x2Uh3xBKDCWVm9kcGFxDc9Z">
-                <pre>LPbC6Ng1K69x2Uh3x<br>BKDCWVm9kcGFxDc9Z</pre>
-              </a>
-            </div>
-            <div class="mustache2">
-              <h2>Credit cards</h2>
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="5TLJ7SR3KEHY4">
-                <input type="image" src="https://www.paypalobjects.com/en_US/BE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-              </form>
+            
+            
+              <a href="https://twitter.com/share" class="twitter-share-button" data-via="lvh" data-size="large">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </div>
           </div>
-        </div>
-
-        <div class="container">
-          <h2>Crypto 101: the presentation</h2>
-          <p>
-            Crypto 101 started as a presentation at PyCon 2013. It
-            tries to go through all of the major dramatis personae of
-            cryptography to make TLS work in 45 minutes. This book is
-            the natural extension of that, with an extensive focus on
-            breaking cryptography.
-          </p>
-          <iframe width="640" height="480" src="//www.youtube.com/embed/3rmCGsCYJF8?rel=0" frameborder="0" allowfullscreen></iframe>
+  
+          <div class="container">
+            <div class="row m-top-100 m-bottom-100">
+              <div class="mustache2">
+                <h2>Start to finish.</h2>
+                <p>
+                  Comes with everything you need to understand complete
+                  systems such as SSL/TLS: block ciphers, stream ciphers,
+                  hash functions, message authentication codes, public key
+                  encryption, key agreement protocols, and signature
+                  algorithms.
+                </p>
+              </div>
+              
+              <div class="mustache2">
+                <h2>Learn by doing.</h2>
+                <p>
+                  Learn how to exploit common cryptographic flaws, armed
+                  with nothing but a little time and your favorite
+                  programming language.
+                </p>
+                <p>
+                  Forge administrator cookies, recover passwords, and even
+                  backdoor your own random number generator.
+                </p>
+              </div>
+              
+              <div class="mustache2">
+                <h2>Works everywhere.</h2>
+                <p>
+                  DRM-free and available in all common formats:
+                </p>
+                <ul>
+                  <li>PDF (for Mac and PC)</li>
+                  <li><s>EPUB (for most ebook readers, iPad and iPhone)</s></li>
+                  <li><s>Mobi (for Kindle)</s></li>
+                </ul>
+                <p>
+                  Exercises run on OS X, Windows, Linux and BSDs.
+                </p>
+              </div>
+            </div>
+          </div>
+  
+          <hr>
+  
+          <div class="container m-top-100 m-bottom-100">
+            <h2 class="text-center">Sponsors</h2>
+            <div class="row">
+               <div class="mustache3 text-center">
+                  <div class="rackspace-logo m-top-60"></div>
+               </div>
+                <div class="mustache3">
+                  <p class="m-top-60">
+                    <a href="https://www.rackspace.com/">Rackspace</a> is a
+                    world-leading cloud services provider. They have
+                    incredibly generously offered to take care of all of
+                    Crypto 101's extensive hosting requirements free of
+                    charge. This project simply wouldn't be possible without
+                    their help.
+                  </p>
+                  <p>Thanks, Rackspace!</p>
+                </div>
+            </div>
+          </div>
+  
+          <div class="bg-grey-lightest p-top-100 p-bottom-100 m-bottom-60">
+            <div class="container">
+              <h2 class="text-center">Donations</h2>
+              <div class="row">
+                <div class="mustache4 offset1">
+                  <p>
+                    Crypto 101 is available for everyone, for free, forever.
+                    Development is
+                    hosted <a href="https://github.com/crypto101">on
+                    Github</a>, funded by free time and your donations. You
+                    are free to donate any amount you want, and all donations
+                    are of course entirely voluntary. Learn
+                    more <a href="contributing.html">about contributing</a>.
+                  </p>
+                </div>
+              </div>
+            
+              <div class="row text-center m-top-60">
+                <div class="mustache2">
+                  <h3 class="text-light">
+                    <div class="bitcoin-logo"></div>
+                    Bitcoin
+                  </h3>
+                  <a href="bitcoin:1PS3aS2GsYTqgVbt18wEJZNCtn2F1HanhE"
+                     class="text-small text-grey">
+                    <pre class="m-top-60">1PS3aS2GsYTqgVbt18wEJZNCtn2F1HanhE</pre>
+                  </a>
+                </div>
+                <div class="mustache2">
+                  <h3 class="text-light">
+                    <div class="litecoin-logo"></div>
+                    Litecoin
+                  </h3>
+                  <a href="litecoin:LPbC6Ng1K69x2Uh3xBKDCWVm9kcGFxDc9Z"
+                     class="text-small text-grey">
+                    <pre class="m-top-60">LPbC6Ng1K69x2Uh3xBKDCWVm9kcGFxDc9Z</pre>
+                  </a>
+                </div>
+                <div class="mustache2">
+                  <h3 class="text-light">Credit cards</h3>
+                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="m-top-45">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="5TLJ7SR3KEHY4">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/BE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="container m-bottom-60">
+            <h2 class="text-center">Crypto 101: the presentation</h2>
+            <div class="row m-bottom-100">
+              <div class="mustache4 offset1">
+                <p class="m-bottom-60">
+                  Crypto 101 started as a presentation at PyCon 2013. It
+                  tries to go through all of the major dramatis personae of
+                  cryptography to make TLS work in 45 minutes. This book is
+                  the natural extension of that, with an extensive focus on
+                  breaking cryptography.
+                </p>
+                <iframe height="480" src="//www.youtube.com/embed/3rmCGsCYJF8?rel=0" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!--
@@ -182,14 +219,18 @@
         </div>
         -->
 
-        <div class="container footer">
-          <p>
-            Made with love
-            by <a href="https://twitter.com/lvh">lvh</a>. Crypto 101
-            is made possible by the incredibly generous contributions
-            of <a href="https://www.rackspace.com/">Rackspace</a>, who
-            provide our hosting requirements!
-          </p>
+        <div class="footer">
+          <div class="container">
+            <p class="text-italic">
+              Made with love
+              by <a href="https://twitter.com/lvh">lvh</a>.
+              </p> 
+            <p>Crypto 101
+              is made possible by the incredibly generous contributions
+              of <a href="https://www.rackspace.com/">Rackspace</a>, who
+              provide our hosting requirements!
+            </p>
+          </div>
         </div>
 
         <!-- build:js scripts/vendor.js -->

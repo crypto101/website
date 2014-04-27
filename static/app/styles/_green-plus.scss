@@ -1,0 +1,10 @@
+.green-plus-before { position: relative; }
+.green-plus-before:before {
+    content: "+";
+    position: absolute;
+    left: -15px;
+    font-size: em(6);
+    font-weight: 400;
+    color: $color-green;
+    line-height: 51px;
+}

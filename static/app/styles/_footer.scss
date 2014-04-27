@@ -1,0 +1,20 @@
+.footer {
+    font-size: em(12);
+    text-align: center;
+    background: $color-grey-light;
+    color: shade($color-grey, 15%);
+    padding: 25px 0;
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+
+    p {
+        margin-bottom: 0;
+        line-height: 2;
+    }
+
+    p a {
+        color: shade($color-grey, 35%);
+    }
+}

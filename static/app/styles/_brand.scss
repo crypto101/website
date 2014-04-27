@@ -1,0 +1,11 @@
+.brand {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: em(54);
+    line-height: 1;
+    margin-bottom: em(3);
+
+    .text-light {
+        color: rgba($color-white, .6);
+    }
+}

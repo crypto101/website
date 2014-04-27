@@ -1,0 +1,39 @@
+h1 {
+    font-size: em(36);
+    margin: 0;
+    margin-bottom: em(5);
+}
+
+h2 {
+    font-size: em(30);
+    margin: 0;
+    margin-bottom: em(10)
+}
+
+h3 {
+    font-size: em(24);
+    margin: 0;
+}
+
+p.lead {
+    font-size: em(28);
+    color: rgba($color-white, .9);
+    font-weight: 300;
+}
+
+p {
+    font-size: em(20);
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: em(10);
+}
+
+p a {
+    color: $color-orange;
+    text-decoration: none;
+    border-bottom: 1px dashed $color-grey;
+}
+
+pre {
+    word-wrap: break-word;
+}

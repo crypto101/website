@@ -1,0 +1,27 @@
+$positions: (top, right, bottom, left);
+
+@each $position in $positions {
+    .m-#{$position}-100 {
+        margin-#{$position}: 100px;
+    }
+
+    .p-#{$position}-100 {
+        padding-#{$position}: 100px;
+    }
+
+    .m-#{$position}-60 {
+        margin-#{$position}: 60px;
+    }
+
+    .p-#{$position}-60 {
+        padding-#{$position}: 60px;
+    }
+
+     .m-#{$position}-45 {
+        margin-#{$position}: 45px;
+    }
+
+    .p-#{$position}-45 {
+        padding-#{$position}: 45px;
+    }
+}
