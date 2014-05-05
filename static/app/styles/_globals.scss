@@ -16,6 +16,15 @@ img, iframe {
 
 iframe {
     width: 100%;
+    height: 300px;
+
+    @media(min-width: $bp-baby-bear) {
+        height: 400px;
+    }
+
+    @media(min-width: $bp-mama-bear) {
+        height: 480px;
+    }
 }
 
 

@@ -1,9 +1,17 @@
 .brand {
     text-transform: uppercase;
     font-weight: 800;
-    font-size: em(54);
+    font-size: em(34);
     line-height: 1;
     margin-bottom: em(3);
+
+    @media(min-width: $bp-mama-bear) {
+    	font-size: em(48);
+    }
+
+    @media(min-width: $bp-papa-bear) {
+    	font-size: em(54);
+    }
 
     .text-light {
         color: rgba($color-white, .6);
