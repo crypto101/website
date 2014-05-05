@@ -181,11 +181,14 @@ module.exports = function (grunt) {
             html: '<%= yeoman.app %>/index.html'
         },
         usemin: {
-            options: {
-                assetsDirs: ['<%= yeoman.dist %>']
-            },
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
+          options: {
+            assetsDirs: ['<%= yeoman.dist %>'],
+            patterns: {
+              js: [[/(.*\.png)/, 'Replacing reference to PNG image']]
+            }
+          },
+          html: ['<%= yeoman.dist %>/{,*/}*.html'],
+          css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
         },
         imagemin: {
             dist: {

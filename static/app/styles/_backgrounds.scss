@@ -2,12 +2,10 @@
     background: $color-purple;
 }
 
-
 .bg-grey-lightest {
     background: $color-grey-lightest;
 }
 
-
 .bg-numbers {
-	@include retina-image("../images/hero_background", 119px 50px);
+	@include retina-image("/images/hero_background", 119px 50px);
 }
