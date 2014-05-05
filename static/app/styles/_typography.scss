@@ -1,31 +1,63 @@
 h1 {
-    font-size: em(36);
     margin: 0;
     margin-bottom: em(5);
+    font-size: em(30);
+
+    @media(min-width: $bp-mama-bear) {
+        font-size: em(36);
+    }
 }
 
 h2 {
-    font-size: em(30);
+    font-size: em(20);
     margin: 0;
-    margin-bottom: em(10)
+    margin-bottom: em(10);
+
+    @media(min-width: $bp-baby-bear) {
+        font-size: em(22);
+    }
+
+    @media(min-width: $bp-mama-bear) {
+        font-size: em(30);
+    }
 }
 
 h3 {
-    font-size: em(24);
     margin: 0;
+    font-size: em(20);
+    
+    @media(min-width: $bp-baby-bear) {
+        font-size: em(24);
+    }
 }
 
 p.lead {
-    font-size: em(28);
     color: rgba($color-white, .9);
     font-weight: 300;
+    font-size: em(22);
+
+    @media(min-width: $bp-baby-bear) {
+        font-size: em(24);
+    }
+
+    @media(min-width: $bp-mama-bear) {
+        font-size: em(28);
+    }
 }
 
 p {
-    font-size: em(20);
+    font-size: em(16);
     line-height: 1.5;
     margin: 0;
     margin-bottom: em(10);
+
+    @media(min-width: $bp-mama-bear) {
+        font-size: em(18);
+    }
+
+    @media(min-width: $bp-mama-bear) {
+        font-size: em(20);
+    }
 }
 
 p a {

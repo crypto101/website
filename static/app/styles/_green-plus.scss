@@ -6,5 +6,9 @@
     font-size: em(6);
     font-weight: 400;
     color: $color-green;
-    line-height: 51px;
+    line-height: 34px;
+
+    @media(min-width: $bp-mama-bear) {
+	    line-height: 51px;
+    }
 }

@@ -1,27 +1,66 @@
 $positions: (top, right, bottom, left);
 
+// mobile spacing
 @each $position in $positions {
-    .m-#{$position}-100 {
-        margin-#{$position}: 100px;
+    .m-#{$position}-50 {
+        margin-#{$position}: 50px;
     }
 
-    .p-#{$position}-100 {
-        padding-#{$position}: 100px;
+    .p-#{$position}-50 {
+        padding-#{$position}: 50px;
     }
 
-    .m-#{$position}-60 {
-        margin-#{$position}: 60px;
+    .m-#{$position}-30 {
+        margin-#{$position}: 30px;
     }
 
-    .p-#{$position}-60 {
-        padding-#{$position}: 60px;
+    .p-#{$position}-30 {
+        padding-#{$position}: 30px;
     }
 
-     .m-#{$position}-45 {
-        margin-#{$position}: 45px;
+    .m-#{$position}-35 {
+        margin-#{$position}: 35px;
     }
 
-    .p-#{$position}-45 {
-        padding-#{$position}: 45px;
+    .p-#{$position}-35 {
+        padding-#{$position}: 35px;
+    }
+}
+
+// medium spacing
+@each $position in $positions {
+    @media(min-width: $bp-mama-bear) {
+
+        .m-medium-#{$position}-0 {
+            margin-#{$position}: 0;
+        }
+
+        .p-medium-#{$position}-0 {
+            padding-#{$position}: 0;
+        }
+
+        .m-medium-#{$position}-100 {
+            margin-#{$position}: 100px;
+        }
+
+        .p-medium-#{$position}-100 {
+            padding-#{$position}: 100px;
+        }
+
+        .m-medium-#{$position}-60 {
+            margin-#{$position}: 60px;
+        }
+
+        .p-medium-#{$position}-60 {
+            padding-#{$position}: 60px;
+        }
+
+        .m-medium-#{$position}-45 {
+            margin-#{$position}: 45px;
+        }
+
+        .p-medium-#{$position}-45 {
+            padding-#{$position}: 45px;
+        }
     }
 }

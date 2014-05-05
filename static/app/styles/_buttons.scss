@@ -1,11 +1,19 @@
 .btn {
-    height: em(36);
-    line-height: em(36);
+    height: em(30);
+    line-height: em(30);
+    font-size: em(20);
+    padding: 0 em(15);
     border-radius: 2px;
-    font-size: em(24);
-    padding: 0 em(20);
     @include box-shadow(none);
     border: 0;
     @include linear-gradient(bottom, $color-orange, $color-orange-light);
     color: $color-white;
+
+    @media(min-width: $bp-mama-bear) {
+    	height: em(36);
+	    line-height: em(36);
+	    font-size: em(24);
+	    padding: 0 em(20);
+	    margin-left: 0;
+    }
 }
