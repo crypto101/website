@@ -1,6 +1,18 @@
 // twitter widget
 #twitter-widget-0 {
     vertical-align: middle;
-    margin-left: 20px;
-    margin-top: -8px;
+    display: block;
+    margin-top: 10px;
+    
+
+    @media(min-width: 470px) {
+    	display: inline-block;
+	    margin-top: -5px;
+	    margin-left: 10px;
+    }
+
+    @media(min-width: $bp-mama-bear) {
+	    margin-top: -9px;
+    	margin-left: 20px;
+    }
 }

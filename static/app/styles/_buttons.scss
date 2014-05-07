@@ -8,6 +8,8 @@
     border: 0;
     @include linear-gradient(bottom, $color-orange, $color-orange-light);
     color: $color-white;
+    text-decoration: none;
+    display: inline-block;
 
     @media(min-width: $bp-mama-bear) {
     	height: em(36);
