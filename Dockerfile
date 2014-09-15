@@ -8,7 +8,7 @@ RUN pip install tox
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get update
-RUN apt-get install -y nodejs rubygems
+RUN apt-get install -y nodejs ruby
 RUN gem install compass --pre
 
 RUN git clone https://github.com/crypto101/website.git /var/website # 24 Mar 2014 16:15
@@ -23,7 +23,7 @@ RUN tox -e py27
 
 RUN apt-get remove -y python-setuptools python-pip git build-essential python-dev libffi-dev
 RUN gem list | cut -d" " -f1 | xargs gem uninstall -aIx
-RUN apt-get remove -y nodejs rubygems
+RUN apt-get remove -y nodejs ruby
 RUN apt-get -y autoremove
 
 RUN echo "root - nofile 32768" >> /etc/security/limits.conf
