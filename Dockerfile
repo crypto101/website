@@ -1,4 +1,4 @@
-FROM ubuntu:quantal
+FROM ubuntu:trusty
 MAINTAINER Laurens Van Houtven, _@lvh.io
 
 RUN apt-get update # 4 Mar 2014 17:07
