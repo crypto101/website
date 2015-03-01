@@ -2,7 +2,7 @@ $(function() {
     var downloadLink = $("#download-link");
 
     downloadLink.click(function () {
-        $("#email-form").show();
+            // $("#email-form").show();
     });
 
     $("#email-form").on('click', function(e) {
