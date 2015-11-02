@@ -181,14 +181,14 @@ module.exports = function (grunt) {
             html: '<%= yeoman.app %>/index.html'
         },
         usemin: {
-          options: {
-            assetsDirs: ['<%= yeoman.dist %>'],
-            patterns: {
-              js: [[/(.*\.png)/, 'Replacing reference to PNG image']]
-            }
-          },
-          html: ['<%= yeoman.dist %>/{,*/}*.html'],
-          css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
+            options: {
+                assetsDirs: ['<%= yeoman.dist %>'],
+                patterns: {
+                    js: [[/(.*\.png)/, 'Replacing reference to PNG image']]
+                }
+            },
+            html: ['<%= yeoman.dist %>/{,*/}*.html'],
+            css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
         },
         imagemin: {
             dist: {
@@ -305,8 +305,8 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('server', function () {
-      grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-      grunt.task.run(['serve']);
+        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+        grunt.task.run(['serve']);
     });
 
     grunt.registerTask('test', [
@@ -322,6 +322,7 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
+        'compass',
         'concat',
         'cssmin',
         'uglify',
